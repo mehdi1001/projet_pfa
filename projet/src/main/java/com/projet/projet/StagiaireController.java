@@ -20,6 +20,18 @@ public class StagiaireController {
 	@Autowired
 	private StagiaireRepository stagiaireRepository;
 	
+	@RequestMapping(value="/this")
+	public String index4(Model model){
+		 List<Stagiaire> list=stagiaireRepository.findAll();
+		 
+		///////////////////////////// list.forEach(e->System.out.println(e.getNom()));
+		 model.addAttribute("stagiaire", list);
+	
+		return "stagiairetable";
+		
+		
+	}
+	
 	@RequestMapping(value="/index")
 	public String index(Model model){
 		 List<Stagiaire> list=stagiaireRepository.findAll();
@@ -27,7 +39,7 @@ public class StagiaireController {
 		///////////////////////////// list.forEach(e->System.out.println(e.getNom()));
 		 model.addAttribute("stagiaire", list);
 	
-		return "stagiaire";
+		return "index_stagiaire";
 		
 		
 	}
